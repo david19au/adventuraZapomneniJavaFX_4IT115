@@ -7,6 +7,8 @@ import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Hra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.uiText.TextoveRozhrani;
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
@@ -33,13 +35,16 @@ public class Main extends Application {
         TextoveRozhrani ui = new TextoveRozhrani(hra);
         ui.hraj();
     } else {
-
+        launch();
         }
 
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        Scene scene = new Scene(new Pane());
+        stage.setScene(scene);
+        stage.setTitle("Zapomnění - luut02");
+        stage.show();
     }
 }
