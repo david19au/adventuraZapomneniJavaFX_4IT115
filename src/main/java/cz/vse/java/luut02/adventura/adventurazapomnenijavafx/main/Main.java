@@ -6,6 +6,8 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Hra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.uiText.TextoveRozhrani;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -17,7 +19,7 @@ import java.io.IOException;
  * @author Jarmila Pavlíčková, Trong Dat Luu
  * @version LS 2021/22
  */
-public class Main {
+public class Main extends Application {
     /***************************************************************************
      * Metoda, prostřednictvím níž se spouští celá aplikace.
      *
@@ -25,8 +27,19 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
 
+
+        if  (args.length>0 && args[0].equals("text")) {
         IHra hra = new Hra();
         TextoveRozhrani ui = new TextoveRozhrani(hra);
         ui.hraj();
+    } else {
+
+        }
+
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
     }
 }
