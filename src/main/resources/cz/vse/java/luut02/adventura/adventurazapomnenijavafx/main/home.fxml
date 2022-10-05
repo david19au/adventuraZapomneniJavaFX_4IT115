@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<GridPane fx:controller="cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.HomeController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -38,7 +38,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField GridPane.rowIndex="2" />
+      <TextField onAction="#processCommand" GridPane.rowIndex="2" />
       <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
    </children>
 </GridPane>
