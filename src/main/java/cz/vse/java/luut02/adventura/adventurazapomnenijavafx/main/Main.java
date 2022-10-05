@@ -47,7 +47,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("home.fxml"));
         loader.load();
-        Scene scene = new Scene(new Pane());
+        Scene scene = new Scene(loader.getRoot());
         stage.setScene(scene);
         stage.setTitle("Zapomnění - luut02");
         stage.show();
