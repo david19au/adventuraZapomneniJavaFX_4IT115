@@ -59,6 +59,7 @@ public class Inventar {
 
     /**
      * Metoda odebere věc z inventáře.
+     *
      * @param jmenoVeci jméno věci co se má odebrat
      * @return vrací odebranou věc
      */

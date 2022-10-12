@@ -1,4 +1,5 @@
 package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
