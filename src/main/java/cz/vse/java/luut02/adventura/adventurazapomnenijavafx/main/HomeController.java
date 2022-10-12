@@ -2,15 +2,22 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main;
 
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Hra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Prostor;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.util.Collection;
 
 public class HomeController {
 
     @FXML
     private TextArea output;
+
+    @FXML
+    private ListView panelVychodu;
 
     @FXML
     private TextField input;
@@ -21,6 +28,12 @@ public class HomeController {
     private void initialize() {
         output.appendText(hra.vratUvitani() + "\n\n");
         Platform.runLater(() -> input.requestFocus());
+        naplneniPaneluVychodu();
+    }
+
+    private void naplneniPaneluVychodu() {
+        Collection<Prostor> vychody = hra.getHerniPlan().getAktualniProstor().getVychody();
+        panelVychodu.getItems().addAll(vychody);
     }
 
     @FXML
