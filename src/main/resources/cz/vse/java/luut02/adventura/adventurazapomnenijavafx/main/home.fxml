@@ -38,7 +38,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField onAction="#processCommand" GridPane.rowIndex="2" />
-      <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+      <TextField fx:id="vstup" onAction="#processCommand"  GridPane.rowIndex="2" />
+      <TextArea fx:id="vystup" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
    </children>
 </GridPane>
