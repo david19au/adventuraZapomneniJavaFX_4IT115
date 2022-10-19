@@ -38,10 +38,8 @@ public class HomeController implements Observer {
         panelVychodu.getItems().addAll(vychody);
     }
 
-    @FXML
-    private void processCommand() {
-        String prikaz = input.getText();
-        input.clear();
+
+    private void zpracujPrikaz(String prikaz) {
         output.appendText("> " + prikaz + "\n");
 
         String vysledek = hra.zpracujPrikaz(prikaz);
@@ -55,6 +53,12 @@ public class HomeController implements Observer {
         //Opravit můj způsob jak ukončit hru
         //
 
+    }
+    @FXML
+    private void zpracujVstup() {
+        String prikaz = input.getText();
+        input.clear();
+        zpracujPrikaz(prikaz);
     }
 
 
