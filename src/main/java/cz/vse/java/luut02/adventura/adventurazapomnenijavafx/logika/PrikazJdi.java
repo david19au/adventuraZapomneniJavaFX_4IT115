@@ -7,8 +7,8 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
  * @author Jarmila Pavlickova, Luboš Pavlíček, Trong Dat Luu
  * @version LS 2021/22
  */
-class PrikazJdi implements IPrikaz {
-    private static final String NAZEV = "jdi";
+public class PrikazJdi implements IPrikaz {
+    public static final String NAZEV = "jdi";
     private HerniPlan plan;
 
     /**

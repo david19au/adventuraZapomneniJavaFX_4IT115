@@ -2,6 +2,7 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main;
 
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Hra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.PrikazJdi;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Prostor;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -80,6 +81,6 @@ public class HomeController implements Observer {
         if
             (cilovyProstor==null)
             return;
-        zpracujPrikaz("jdi " +cilovyProstor);
+        zpracujPrikaz(PrikazJdi.NAZEV+ " " +cilovyProstor);
     }
 }
