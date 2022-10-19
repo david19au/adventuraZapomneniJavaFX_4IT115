@@ -33,6 +33,7 @@ public class HomeController implements Observer {
     }
 
     private void naplneniPaneluVychodu() {
+        panelVychodu.getItems().clear(); //aby se po každém pohybu clearnul ten seznam a nebyly by tam old entries
         Collection<Prostor> vychody = hra.getHerniPlan().getAktualniProstor().getVychody();
         panelVychodu.getItems().addAll(vychody);
     }
@@ -59,6 +60,6 @@ public class HomeController implements Observer {
 
     @Override
     public void update() {
-        System.out.println("aktualizace");
+        naplneniPaneluVychodu();
     }
 }
