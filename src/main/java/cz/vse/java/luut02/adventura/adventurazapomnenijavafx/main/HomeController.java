@@ -77,6 +77,9 @@ public class HomeController implements Observer {
 
     public void clickPanelVychodu(MouseEvent mouseEvent) {
         Prostor cilovyProstor = panelVychodu.getSelectionModel().getSelectedItem();
+        if
+            (cilovyProstor==null)
+            return;
         zpracujPrikaz("jdi " +cilovyProstor);
     }
 }
