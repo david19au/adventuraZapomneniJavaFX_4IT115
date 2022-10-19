@@ -12,44 +12,47 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.HomeController">
+<GridPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+          xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.HomeController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints prefHeight="40.0" vgrow="NEVER" />
+        <RowConstraints/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints prefHeight="40.0" vgrow="NEVER"/>
     </rowConstraints>
     <children>
-        <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.rowIndex="2">
-         <children>
-              <TextField fx:id="vstup" onAction="#zpracujVstup" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <Button fx:id="process" onAction="#zpracujVstup" mnemonicParsing="false" text="Proveď" HBox.hgrow="ALWAYS" />
-         </children>
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </GridPane.margin>
-      </HBox>
-      <SplitPane dividerPositions="0.13879598662207357" GridPane.rowIndex="1">
-         <items>
-            <ListView fx:id="panelVychodu" onMouseClicked="#clickPanelVychodu"/>
-            <TextArea fx:id="vystup" editable="false" prefHeight="333.0" prefWidth="281.0" />
-         </items>
-      </SplitPane>
-      <ToolBar prefHeight="40.0" prefWidth="200.0">
-        <items>
-          <Button mnemonicParsing="false" text="Nová hra" />
-            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" text="Nápověda" />
-        </items>
-      </ToolBar>
+        <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1"/>
+        <HBox prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.rowIndex="2">
+            <children>
+                <TextField fx:id="vstup" onAction="#zpracujVstup" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </TextField>
+                <Button fx:id="process" onAction="#zpracujVstup" mnemonicParsing="false" text="Proveď"
+                        HBox.hgrow="ALWAYS"/>
+            </children>
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </GridPane.margin>
+        </HBox>
+        <SplitPane dividerPositions="0.13879598662207357" GridPane.rowIndex="1">
+            <items>
+                <ListView fx:id="panelVychodu" onMouseClicked="#clickPanelVychodu"/>
+                <TextArea fx:id="vystup" editable="false" prefHeight="333.0" prefWidth="281.0"/>
+            </items>
+        </SplitPane>
+        <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <items>
+                <Button mnemonicParsing="false" text="Nová hra"/>
+                <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" text="Nápověda"/>
+            </items>
+        </ToolBar>
     </children>
 </GridPane>

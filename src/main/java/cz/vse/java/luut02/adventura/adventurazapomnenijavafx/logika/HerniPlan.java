@@ -135,7 +135,7 @@ public class HerniPlan implements Observable {
     }
 
     private void alertsObservers() {
-        for(Observer observer : listOfObservers) {
+        for (Observer observer : listOfObservers) {
             observer.update();
         }
     }

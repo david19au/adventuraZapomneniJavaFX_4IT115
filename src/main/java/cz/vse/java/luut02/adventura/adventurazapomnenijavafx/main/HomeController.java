@@ -46,7 +46,8 @@ public class HomeController implements Observer {
 
 
     private void zpracujPrikaz(String prikaz) {
-        if(prikaz.isBlank()) return;
+        if (prikaz.isBlank())
+            return;
         vystup.appendText("> " + prikaz + "\n");
         String vysledek = hra.zpracujPrikaz(prikaz);
         vystup.appendText(vysledek + "\n\n");
@@ -63,6 +64,7 @@ public class HomeController implements Observer {
         //
 
     }
+
     @FXML
     private void zpracujVstup() {
         String prikaz = vstup.getText();
@@ -78,9 +80,8 @@ public class HomeController implements Observer {
 
     public void clickPanelVychodu(MouseEvent mouseEvent) {
         Prostor cilovyProstor = panelVychodu.getSelectionModel().getSelectedItem();
-        if
-            (cilovyProstor==null)
+        if (cilovyProstor == null)
             return;
-        zpracujPrikaz(PrikazJdi.NAZEV+ " " +cilovyProstor);
+        zpracujPrikaz(PrikazJdi.NAZEV + " " + cilovyProstor);
     }
 }
