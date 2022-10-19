@@ -49,6 +49,10 @@ public class HomeController {
             output.appendText(hra.vratEpilog());
             input.setDisable(true);
         }
+        //FIXME
+        //Opravit můj způsob jak ukončit hru
+        //
+
     }
 
 
