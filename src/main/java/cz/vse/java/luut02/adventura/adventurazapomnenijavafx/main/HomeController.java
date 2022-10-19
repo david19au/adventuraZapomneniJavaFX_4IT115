@@ -16,13 +16,13 @@ import java.util.Collection;
 public class HomeController implements Observer {
 
     @FXML
-    private TextArea output;
+    private TextArea vystup;
 
     @FXML
     private ListView<Prostor> panelVychodu;
 
     @FXML
-    private TextField input;
+    private TextField vstup;
 
     @FXML
     private Button proved;
@@ -32,8 +32,8 @@ public class HomeController implements Observer {
     @FXML
     private void initialize() {
         hra.getHerniPlan().register(this);
-        output.appendText(hra.vratUvitani() + "\n\n");
-        Platform.runLater(() -> input.requestFocus());
+        vystup.appendText(hra.vratUvitani() + "\n\n");
+        Platform.runLater(() -> vstup.requestFocus());
         naplneniPaneluVychodu();
     }
 
@@ -45,14 +45,14 @@ public class HomeController implements Observer {
 
 
     private void zpracujPrikaz(String prikaz) {
-        output.appendText("> " + prikaz + "\n");
+        vystup.appendText("> " + prikaz + "\n");
 
         String vysledek = hra.zpracujPrikaz(prikaz);
-        output.appendText(vysledek + "\n\n");
+        vystup.appendText(vysledek + "\n\n");
 
         if (hra.konecHry()) {
-            output.appendText(hra.vratEpilog());
-            input.setDisable(true);
+            vystup.appendText(hra.vratEpilog());
+            vstup.setDisable(true);
             proved.setDisable(true);
             panelVychodu.setDisable(true);
         }
@@ -64,8 +64,8 @@ public class HomeController implements Observer {
     }
     @FXML
     private void zpracujVstup() {
-        String prikaz = input.getText();
-        input.clear();
+        String prikaz = vstup.getText();
+        vstup.clear();
         zpracujPrikaz(prikaz);
     }
 
