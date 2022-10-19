@@ -1,6 +1,12 @@
 package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
 
 
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Observable;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Observer;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Class HerniPlan - třída představující mapu a stav adventury.
  * <p>
@@ -12,10 +18,11 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
  * @version LS 2021/22
  */
-public class HerniPlan {
+public class HerniPlan implements Observable {
 
     private Prostor aktualniProstor;
     private Prostor psychologProstor;
+    private Set<Observer> listOfObservers = new HashSet<>();
 
     /**
      * Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -109,6 +116,7 @@ public class HerniPlan {
      */
     public void setAktualniProstor(Prostor prostor) {
         aktualniProstor = prostor;
+        alertsObservers();
     }
 
     /**
@@ -119,5 +127,16 @@ public class HerniPlan {
      */
     public boolean jeUPsychologa() {
         return aktualniProstor.equals(psychologProstor);
+    }
+
+    @Override
+    public void register(Observer observer) {
+        listOfObservers.add(observer);
+    }
+
+    private void alertsObservers() {
+        for(Observer observer : listOfObservers) {
+            observer.update();
+        }
     }
 }

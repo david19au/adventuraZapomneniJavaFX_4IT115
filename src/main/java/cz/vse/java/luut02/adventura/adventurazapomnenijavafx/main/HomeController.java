@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 
 import java.util.Collection;
 
-public class HomeController {
+public class HomeController implements Observer {
 
     @FXML
     private TextArea output;
@@ -26,6 +26,7 @@ public class HomeController {
 
     @FXML
     private void initialize() {
+        hra.getHerniPlan().register(this);
         output.appendText(hra.vratUvitani() + "\n\n");
         Platform.runLater(() -> input.requestFocus());
         naplneniPaneluVychodu();
@@ -56,4 +57,8 @@ public class HomeController {
     }
 
 
+    @Override
+    public void update() {
+        System.out.println("aktualizace");
+    }
 }
