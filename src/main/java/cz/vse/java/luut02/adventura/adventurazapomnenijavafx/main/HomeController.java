@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 import java.util.Collection;
 
@@ -17,7 +18,7 @@ public class HomeController implements Observer {
     private TextArea output;
 
     @FXML
-    private ListView panelVychodu;
+    private ListView<Prostor> panelVychodu;
 
     @FXML
     private TextField input;
@@ -65,5 +66,10 @@ public class HomeController implements Observer {
     @Override
     public void update() {
         naplneniPaneluVychodu();
+    }
+
+    public void clickPanelVychodu(MouseEvent mouseEvent) {
+        Prostor cilovyProstor = panelVychodu.getSelectionModel().getSelectedItem();
+        zpracujPrikaz("jdi " +cilovyProstor);
     }
 }
