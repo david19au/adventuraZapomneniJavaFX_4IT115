@@ -5,6 +5,7 @@ import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Prostor;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -22,6 +23,9 @@ public class HomeController implements Observer {
 
     @FXML
     private TextField input;
+
+    @FXML
+    private Button proved;
 
     private IHra hra = new Hra();
 
@@ -49,9 +53,12 @@ public class HomeController implements Observer {
         if (hra.konecHry()) {
             output.appendText(hra.vratEpilog());
             input.setDisable(true);
+            proved.setDisable(true);
+            panelVychodu.setDisable(true);
         }
         //FIXME
         //Opravit můj způsob jak ukončit hru
+        //tuna exceptions lmao
         //
 
     }
