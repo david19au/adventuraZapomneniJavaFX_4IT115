@@ -45,8 +45,8 @@ public class HomeController implements Observer {
 
 
     private void zpracujPrikaz(String prikaz) {
+        if(prikaz.isBlank()) return;
         vystup.appendText("> " + prikaz + "\n");
-
         String vysledek = hra.zpracujPrikaz(prikaz);
         vystup.appendText(vysledek + "\n\n");
 
