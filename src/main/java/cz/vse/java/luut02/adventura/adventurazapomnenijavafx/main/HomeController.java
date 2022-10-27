@@ -7,12 +7,10 @@ import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Prostor;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -55,6 +53,24 @@ public class HomeController implements Observer {
         souradniceProstoru.put("hlavniNadrazi", new Point2D(24, 73));
         souradniceProstoru.put("karluvMost", new Point2D(34, 73));
         souradniceProstoru.put("drogovydealer", new Point2D(84, 73));
+
+        panelVychodu.setCellFactory(new Callback<ListView<Prostor>, ListCell<Prostor>>() {
+            @Override
+            public ListCell<Prostor> call(ListView<Prostor> prostorListView) {
+                return new ListCell<>() {
+                    @Override
+                    protected void updateItem(Prostor prostor, boolean empty) {
+                        super.updateItem(prostor, empty);
+                        if(!empty) {
+                            setText(prostor.getNazev());
+                        } else {
+                            setText(null);
+                        }
+
+                    }
+                };
+            }
+        });
     }
 
     private void naplneniPaneluVychodu() {
