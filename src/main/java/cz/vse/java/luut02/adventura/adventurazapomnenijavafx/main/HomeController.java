@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
+import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,22 +55,24 @@ public class HomeController implements Observer {
         souradniceProstoru.put("karluvMost", new Point2D(34, 73));
         souradniceProstoru.put("drogovydealer", new Point2D(84, 73));
 
-        panelVychodu.setCellFactory(new Callback<ListView<Prostor>, ListCell<Prostor>>() {
-            @Override
-            public ListCell<Prostor> call(ListView<Prostor> prostorListView) {
-                return new ListCell<>() {
-                    @Override
+        panelVychodu.setCellFactory(prostorListView -> new ListCell<>() {                    @Override
                     protected void updateItem(Prostor prostor, boolean empty) {
                         super.updateItem(prostor, empty);
                         if(!empty) {
                             setText(prostor.getNazev());
+                            URL urlObrazku = getClass().getResource(prostor.getNazev()+".jpg");
+                            if(urlObrazku==null) return;
+                            ImageView iw = new ImageView(urlObrazku.toString());
+                            iw.setFitHeight(100);
+                            iw.setPreserveRatio(true);
+                                    setGraphic(iw);
+
                         } else {
                             setText(null);
+                            setGraphic(null);
                         }
 
                     }
-                };
-            }
         });
     }
 
