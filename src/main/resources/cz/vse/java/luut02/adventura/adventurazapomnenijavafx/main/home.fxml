@@ -67,7 +67,7 @@
                               <Image url="@herniPlan.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="95.0" fitWidth="65.0" layoutX="21.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="hrac" fitHeight="95.0" fitWidth="65.0" layoutX="21.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@hrac.png" />
                            </image>
