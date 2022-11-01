@@ -57,24 +57,25 @@ public class HomeController implements Observer {
         souradniceProstoru.put("strecha_skoly", new Point2D(284, 277));
         souradniceProstoru.put("vaclavske_namesti", new Point2D(416, 174));
 
-        panelVychodu.setCellFactory(prostorListView -> new ListCell<>() {                    @Override
-                    protected void updateItem(Prostor prostor, boolean empty) {
-                        super.updateItem(prostor, empty);
-                        if(!empty) {
-                            setText(prostor.getNazev());
-                            URL urlObrazku = getClass().getResource(prostor.getNazev()+".jpg");
-                            if(urlObrazku==null) return;
-                            ImageView iw = new ImageView(urlObrazku.toString());
-                            iw.setFitHeight(100);
-                            iw.setPreserveRatio(true);
-                                    setGraphic(iw);
+        panelVychodu.setCellFactory(prostorListView -> new ListCell<>() {
+            @Override
+            protected void updateItem(Prostor prostor, boolean empty) {
+                super.updateItem(prostor, empty);
+                if (!empty) {
+                    setText(prostor.getNazev());
+                    URL urlObrazku = getClass().getResource(prostor.getNazev() + ".jpg");
+                    if (urlObrazku == null) return;
+                    ImageView iw = new ImageView(urlObrazku.toString());
+                    iw.setFitHeight(100);
+                    iw.setPreserveRatio(true);
+                    setGraphic(iw);
 
-                        } else {
-                            setText(null);
-                            setGraphic(null);
-                        }
+                } else {
+                    setText(null);
+                    setGraphic(null);
+                }
 
-                    }
+            }
         });
     }
 
