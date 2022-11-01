@@ -10,7 +10,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
+
 
 import java.net.URL;
 import java.util.Collection;
@@ -44,16 +44,18 @@ public class HomeController implements Observer {
         Platform.runLater(() -> vstup.requestFocus());
         naplneniPaneluVychodu();
 
-        //TODO dodělat tyhle prostory a souřadnice pomocí scenebuilderu
-        souradniceProstoru.put("kuchyň", new Point2D(14, 73));
-        souradniceProstoru.put("domov", new Point2D(20, 73));
-        souradniceProstoru.put("ulice", new Point2D(10, 73));
-        souradniceProstoru.put("kamaraduvByt", new Point2D(50, 73));
-        souradniceProstoru.put("koleje", new Point2D(30, 73));
-        souradniceProstoru.put("skola", new Point2D(74, 73));
-        souradniceProstoru.put("hlavniNadrazi", new Point2D(24, 73));
-        souradniceProstoru.put("karluvMost", new Point2D(34, 73));
-        souradniceProstoru.put("drogovydealer", new Point2D(84, 73));
+        souradniceProstoru.put("kuchyn", new Point2D(529, 34));
+        souradniceProstoru.put("domov", new Point2D(425, 84));
+        souradniceProstoru.put("ulice", new Point2D(333, 123));
+        souradniceProstoru.put("kamaraduv_byt", new Point2D(326, 43));
+        souradniceProstoru.put("koleje", new Point2D(116, 64));
+        souradniceProstoru.put("skola", new Point2D(289, 197));
+        souradniceProstoru.put("hlavni_nadrazi", new Point2D(202, 118));
+        souradniceProstoru.put("karluv_most", new Point2D(537, 175));
+        souradniceProstoru.put("drogovy_dealer", new Point2D(453, 248));
+        souradniceProstoru.put("psycholog", new Point2D(168, 212));
+        souradniceProstoru.put("strecha_skoly", new Point2D(284, 277));
+        souradniceProstoru.put("vaclavske_namesti", new Point2D(416, 174));
 
         panelVychodu.setCellFactory(prostorListView -> new ListCell<>() {                    @Override
                     protected void updateItem(Prostor prostor, boolean empty) {

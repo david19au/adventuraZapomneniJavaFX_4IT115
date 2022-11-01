@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.HomeController">
+<GridPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.HomeController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -30,7 +30,7 @@
         <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
         <HBox prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.rowIndex="3">
             <children>
-                <TextField fx:id="vstup" onAction="#zpracujVstup" HBox.hgrow="ALWAYS">
+                <TextField fx:id="vstup" onAction="#zpracujVstup" prefHeight="27.0" prefWidth="726.0" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin>
@@ -38,7 +38,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
                 </TextField>
-                <Button fx:id="process" mnemonicParsing="false" onAction="#zpracujVstup" text="Proveď" HBox.hgrow="ALWAYS" />
+                <Button fx:id="process" mnemonicParsing="false" onAction="#zpracujVstup" prefHeight="25.0" prefWidth="75.0" text="Proveď" HBox.hgrow="ALWAYS" />
             </children>
             <GridPane.margin>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -62,12 +62,12 @@
                <children>
                   <Pane>
                      <children>
-                        <ImageView fitHeight="232.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="571.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@herniPlan.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="hrac" fitHeight="95.0" fitWidth="65.0" layoutX="21.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="hrac" fitHeight="83.0" fitWidth="49.0" layoutX="425.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@hrac.png" />
                            </image>
