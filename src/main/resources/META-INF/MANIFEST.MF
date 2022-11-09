@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.M
+ ain
+
