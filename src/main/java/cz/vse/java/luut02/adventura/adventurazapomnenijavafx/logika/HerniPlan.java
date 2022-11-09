@@ -1,8 +1,8 @@
 package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
 
 
-import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Observable;
-import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Observer;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.PredmetPozorovani;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Pozorovatel;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,11 +18,11 @@ import java.util.Set;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
  * @version LS 2021/22
  */
-public class HerniPlan implements Observable {
+public class HerniPlan implements PredmetPozorovani {
 
     private Prostor aktualniProstor;
     private Prostor psychologProstor;
-    private Set<Observer> listOfObservers = new HashSet<>();
+    private Set<Pozorovatel> listOfPozorovatelu = new HashSet<>();
 
     /**
      * Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -116,7 +116,7 @@ public class HerniPlan implements Observable {
      */
     public void setAktualniProstor(Prostor prostor) {
         aktualniProstor = prostor;
-        alertsObservers();
+        upozorniPozorovatele();
     }
 
     /**
@@ -130,13 +130,13 @@ public class HerniPlan implements Observable {
     }
 
     @Override
-    public void register(Observer observer) {
-        listOfObservers.add(observer);
+    public void registruj(Pozorovatel pozorovatel) {
+        listOfPozorovatelu.add(pozorovatel);
     }
 
-    private void alertsObservers() {
-        for (Observer observer : listOfObservers) {
-            observer.update();
+    private void upozorniPozorovatele() {
+        for (Pozorovatel pozorovatel : listOfPozorovatelu) {
+            pozorovatel.update();
         }
     }
 }
