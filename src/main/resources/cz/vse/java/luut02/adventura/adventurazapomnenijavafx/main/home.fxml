@@ -41,7 +41,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </padding>
                 </TextField>
-                <Button fx:id="process" mnemonicParsing="false" onAction="#zpracujVstup" prefHeight="25.0"
+                <Button fx:id="proved" mnemonicParsing="false" onAction="#zpracujVstup" prefHeight="25.0"
                         prefWidth="75.0" text="Proveď" HBox.hgrow="ALWAYS"/>
             </children>
             <GridPane.margin>
