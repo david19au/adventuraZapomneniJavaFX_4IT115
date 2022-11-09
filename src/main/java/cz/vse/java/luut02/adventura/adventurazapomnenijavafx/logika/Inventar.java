@@ -83,4 +83,16 @@ public class Inventar {
         return false;
     }
 
+    public String nazvyVeci () {
+
+        if (getPocetVeci() == 0) {
+            return "V inventáři nic není.";
+        }
+        StringBuilder nazvy = new StringBuilder("Věci v inventaři: ");
+        for (String jmenoVeci : mapaSVecmi.keySet()) {
+            nazvy.append(jmenoVeci).append(" || ");
+        }
+        return nazvy.toString();
+    }
+
 }
