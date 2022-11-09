@@ -47,6 +47,7 @@ public class TextoveRozhrani {
         }
 
         System.out.println(hra.vratEpilog());
+        // toto je redundant v grafické verzi hry - zde se hra samovolně nevypne, jako tomu bylo v konzolové verzi hry
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); //BufferedReader
         in.readLine(); //vyžaduje input, který může být libovolný, klidně i prázdný
     }
