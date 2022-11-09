@@ -1,9 +1,6 @@
 package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main;
 
-import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Hra;
-import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
-import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.PrikazJdi;
-import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Prostor;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
@@ -12,12 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 
+
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HomeController implements Observer {
+public class HomeController implements Pozorovatel {
 
     @FXML
     private ImageView hrac;
@@ -26,6 +24,9 @@ public class HomeController implements Observer {
 
     @FXML
     private ListView<Prostor> panelVychodu;
+
+    @FXML
+    private ListView<Vec> panelInventar;
 
     @FXML
     private TextField vstup;
@@ -37,9 +38,10 @@ public class HomeController implements Observer {
 
     private IHra hra = new Hra();
 
+
     @FXML
     private void initialize() {
-        hra.getHerniPlan().register(this);
+        hra.getHerniPlan().registruj(this);
         vystup.appendText(hra.vratUvitani() + "\n\n");
         Platform.runLater(() -> vstup.requestFocus());
         naplneniPaneluVychodu();
@@ -86,6 +88,7 @@ public class HomeController implements Observer {
     }
 
 
+
     private void zpracujPrikaz(String prikaz) {
         if (prikaz.isBlank())
             return;
@@ -99,10 +102,6 @@ public class HomeController implements Observer {
             proved.setDisable(true);
             panelVychodu.setDisable(true);
         }
-        //FIXME
-        //Opravit můj způsob jak ukončit hru
-        //tuna exceptions lmao
-        //
 
     }
 
@@ -133,4 +132,5 @@ public class HomeController implements Observer {
             return;
         zpracujPrikaz(PrikazJdi.NAZEV + " " + cilovyProstor);
     }
+
 }
