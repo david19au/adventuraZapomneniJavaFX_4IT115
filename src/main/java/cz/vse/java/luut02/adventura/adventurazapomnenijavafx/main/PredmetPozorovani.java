@@ -4,11 +4,11 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main;
  * influencer, celebrita, observable
  */
 
-public interface Observable {
+public interface PredmetPozorovani {
     /**
      * možnost přihlásit se k "odběru" změn v předmětu který pozoruje
      *
-     * @param observer
+     * @param pozorovatel
      */
-    void register(Observer observer);
+    void registruj(Pozorovatel pozorovatel);
 }
