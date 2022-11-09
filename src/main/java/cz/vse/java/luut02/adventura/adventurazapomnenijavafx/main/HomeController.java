@@ -37,6 +37,7 @@ public class HomeController implements Pozorovatel {
     private Map<String, Point2D> souradniceProstoru = new HashMap<>();
 
     private IHra hra = new Hra();
+    private Inventar inventar = new Inventar();
 
 
     @FXML
@@ -85,7 +86,17 @@ public class HomeController implements Pozorovatel {
         panelVychodu.getItems().clear(); //aby se po každém pohybu clearnul ten seznam a nebyly by tam old entries
         Collection<Prostor> vychody = hra.getHerniPlan().getAktualniProstor().getVychody();
         panelVychodu.getItems().addAll(vychody);
+
     }
+
+    //TODO
+    //panel inventáře
+/*    private void naplneniPanelInventar() {
+        panelInventar.getItems().clear(); //aby se po každém pohybu clearnul ten seznam a nebyly by tam old entries
+        Collection<Vec> veci = inventar.get;
+        panelInventar.getItems().addAll(veci);
+
+    }*/
 
 
 
