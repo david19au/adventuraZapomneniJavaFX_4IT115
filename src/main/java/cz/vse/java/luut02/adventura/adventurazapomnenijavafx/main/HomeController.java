@@ -40,15 +40,16 @@ public class HomeController implements Pozorovatel {
     private Map<String, Point2D> souradniceProstoru = new HashMap<>();
 
     private IHra hra = new Hra();
-    private Inventar inventar = new Inventar();
 
 
     @FXML
     private void initialize() {
         hra.getHerniPlan().registruj(this);
+        hra.getInventar().registruj(this);
         vystup.appendText(hra.vratUvitani() + "\n\n");
         Platform.runLater(() -> vstup.requestFocus());
         naplneniPaneluVychodu();
+        naplneniPaneluInventare();
 
         souradniceProstoru.put("kuchyn", new Point2D(529, 34));
         souradniceProstoru.put("domov", new Point2D(425, 84));
@@ -80,9 +81,32 @@ public class HomeController implements Pozorovatel {
                     setText(null);
                     setGraphic(null);
                 }
+            }
 
+        });
+
+        panelInventar.setCellFactory(inventarListView -> new ListCell<>() {
+            @Override
+            protected void updateItem(Vec vec, boolean empty) {
+                super.updateItem(vec, empty);
+                if (!empty) {
+                    String nazevVeci = vec.getNazev();
+                    setText(nazevVeci);
+                    URL urlObrazku = getClass().getResource(vec.getNazev() + ".jpg");
+                    if (urlObrazku == null) return;
+                    ImageView iw = new ImageView(urlObrazku.toString());
+                    iw.setFitHeight(100);
+                    iw.setPreserveRatio(true);
+                    setGraphic(iw);
+
+                } else {
+                    setText(null);
+                    setGraphic(null);
+                }
             }
         });
+
+
     }
 
     private void naplneniPaneluVychodu() {
@@ -92,14 +116,14 @@ public class HomeController implements Pozorovatel {
 
     }
 
-    //TODO
-    //panel inventáře
-/*    private void naplneniPanelInventar() {
-        panelInventar.getItems().clear(); //aby se po každém pohybu clearnul ten seznam a nebyly by tam old entries
-        Collection<Vec> veci = inventar.get;
-        panelInventar.getItems().addAll(veci);
+    private void naplneniPaneluInventare() {
+        panelInventar.getItems().clear();
+                Collection<Vec> collectionVeci = hra.getInventar().returnVeci();
+                panelInventar.getItems().addAll(collectionVeci);
+    }
 
-    }*/
+
+
 
 
 
@@ -115,6 +139,7 @@ public class HomeController implements Pozorovatel {
             vstup.setDisable(true);
             proved.setDisable(true);
             panelVychodu.setDisable(true);
+            panelInventar.setDisable(true);
         }
 
     }
@@ -130,7 +155,9 @@ public class HomeController implements Pozorovatel {
     @Override
     public void update() {
         naplneniPaneluVychodu();
+        naplneniPaneluInventare();
         posunHrace();
+
     }
 
     private void posunHrace() {
