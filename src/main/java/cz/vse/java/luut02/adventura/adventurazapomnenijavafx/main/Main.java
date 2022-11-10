@@ -51,5 +51,6 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setTitle("Zapomnění - luut02");
         stage.show();
+        stage.setMaximized(true);
     }
 }
