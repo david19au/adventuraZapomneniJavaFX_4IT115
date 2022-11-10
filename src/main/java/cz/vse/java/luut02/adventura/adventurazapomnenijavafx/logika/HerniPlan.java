@@ -22,7 +22,7 @@ public class HerniPlan implements PredmetPozorovani {
 
     private Prostor aktualniProstor;
     private Prostor psychologProstor;
-    private Set<Pozorovatel> listOfPozorovatelu = new HashSet<>();
+    private Set<Pozorovatel> listOfPozorovateluProstor = new HashSet<>();
 
     /**
      * Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -131,11 +131,11 @@ public class HerniPlan implements PredmetPozorovani {
 
     @Override
     public void registruj(Pozorovatel pozorovatel) {
-        listOfPozorovatelu.add(pozorovatel);
+        listOfPozorovateluProstor.add(pozorovatel);
     }
 
     private void upozorniPozorovatele() {
-        for (Pozorovatel pozorovatel : listOfPozorovatelu) {
+        for (Pozorovatel pozorovatel : listOfPozorovateluProstor) {
             pozorovatel.update();
         }
     }
