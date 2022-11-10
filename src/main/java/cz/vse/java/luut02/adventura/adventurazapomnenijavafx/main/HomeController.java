@@ -2,12 +2,15 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main;
 
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.*;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 
 import java.net.URL;
@@ -143,5 +146,16 @@ public class HomeController implements Pozorovatel {
             return;
         zpracujPrikaz(PrikazJdi.NAZEV + " " + cilovyProstor);
     }
+
+    public void clickNapoveda(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        String url = getClass().getResource("help.html").toExternalForm();
+        WebView webView = new WebView();
+        webView.getEngine().load(url);
+        Scene scene = new Scene(webView);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 }
