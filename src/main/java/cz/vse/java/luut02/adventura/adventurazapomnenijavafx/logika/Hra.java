@@ -122,5 +122,9 @@ public class Hra implements IHra {
         return herniPlan;
     }
 
+    public Inventar getInventar() {
+        return inventar;
+    }
+
 }
 

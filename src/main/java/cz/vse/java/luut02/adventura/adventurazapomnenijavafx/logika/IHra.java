@@ -53,6 +53,8 @@ public interface IHra {
      */
     public HerniPlan getHerniPlan();
 
+    public Inventar getInventar();
+
     //== ZDĚDĚNÉ METODY ========================================================
     //== INTERNÍ DATOVÉ TYPY ===================================================
 }

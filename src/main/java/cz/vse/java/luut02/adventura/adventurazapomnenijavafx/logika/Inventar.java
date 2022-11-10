@@ -1,7 +1,9 @@
 package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
 
-import java.util.HashMap;
-import java.util.Map;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Pozorovatel;
+import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.PredmetPozorovani;
+
+import java.util.*;
 
 /**
  * Pomocí třídy Inventar realizuje hra inventář postavy/hráče. V inventáři může postava nosit určité předměty.
@@ -13,11 +15,12 @@ import java.util.Map;
  * @version LS 2021/22
  */
 
-public class Inventar {
+public class Inventar implements PredmetPozorovani {
 
     private Map<String, Vec> mapaSVecmi;
     private static final int MAXIMALNI_KAPACITA = 2;
     private static int pocetVeci;
+    private static Set<Pozorovatel> listOfPozorovateluInventar = new HashSet<>();
 
     /**
      * Konstruktor, který vytvoří nový inventář s hashMapou pro věci.
@@ -54,6 +57,7 @@ public class Inventar {
         if ((vec != null) && dostMista()) {
             pocetVeci++;
             mapaSVecmi.put(vec.getNazev(), vec);
+            upozorniPozorovatele();
         }
     }
 
@@ -63,6 +67,8 @@ public class Inventar {
      * @param jmenoVeci jméno věci co se má odebrat
      * @return vrací odebranou věc
      */
+
+    //TODO - upozornit když se věc odebere?
     public Vec odebraniVeciZInv(String jmenoVeci) {
         pocetVeci--;
         return mapaSVecmi.remove(jmenoVeci);
@@ -83,6 +89,15 @@ public class Inventar {
         return false;
     }
 
+    /**
+     * Metoda vytvoří novou kolekci z HashMapy, která si jsou vždycky rovny - mají stejný obsah.
+     * @return vrací kolekci s věcmi
+     */
+    public Collection<Vec> returnVeci() {
+        Collection<Vec> veci = new HashSet<>(mapaSVecmi.values());
+        return veci;
+    }
+
     public String nazvyVeci () {
 
         if (getPocetVeci() == 0) {
@@ -95,4 +110,15 @@ public class Inventar {
         return nazvy.toString();
     }
 
+    @Override
+    public void registruj(Pozorovatel pozorovatel) {
+        listOfPozorovateluInventar.add(pozorovatel);
+
+    }
+
+    public void upozorniPozorovatele() {
+        for (Pozorovatel pozorovatel: listOfPozorovateluInventar) {
+            pozorovatel.update();
+        }
+    }
 }
