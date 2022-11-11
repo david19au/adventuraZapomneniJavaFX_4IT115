@@ -96,7 +96,7 @@ public class HomeController implements Pozorovatel {
                     URL urlObrazku = getClass().getResource(vec.getNazev() + ".jpg");
                     if (urlObrazku == null) return;
                     ImageView iw = new ImageView(urlObrazku.toString());
-                    iw.setFitHeight(100);
+                    iw.setFitHeight(50);
                     iw.setPreserveRatio(true);
                     setGraphic(iw);
 
