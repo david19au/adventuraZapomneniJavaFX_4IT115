@@ -1,12 +1,17 @@
 image: maven:3.8
 
-sestaveni:
+jlink:
   script:
     - "mvn javafx:jlink -B"
-    - "mvn -Dtest='!InventarTest,!KoupitTest,!BodnoutTest' install -B"
+
   artifacts:
     paths:
       - "target/*.zip"
+
+
+fatjar:
+  script:
+    - "mvn -Dtest='!InventarTest,!KoupitTest,!BodnoutTest' install -B"
+  artifacts:
+    paths:
       - "target/*.jar"
-
-
