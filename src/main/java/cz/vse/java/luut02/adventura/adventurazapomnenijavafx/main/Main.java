@@ -7,10 +7,8 @@ import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.Hra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
 import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.uiText.TextoveRozhrani;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
