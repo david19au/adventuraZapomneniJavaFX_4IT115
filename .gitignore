@@ -5,6 +5,7 @@ target/
 .mvn
 mvnw
 mvnw.cmd
+out/
 
 ### IntelliJ IDEA ###
 .idea
