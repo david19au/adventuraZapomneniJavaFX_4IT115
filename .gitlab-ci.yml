@@ -11,7 +11,7 @@ jlink:
 
 fatjar:
   script:
-    - "mvn -Dtest='!InventarTest,!KoupitTest,!BodnoutTest' install -B"
+    - "mvn -Dtest='!InventarTest,!KoupitTest,!BodnoutTest' package -B"
   artifacts:
     paths:
       - "target/*.jar"
