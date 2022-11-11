@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mainClass>
-            cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Main
+            cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.FakeMain
         </mainClass>
         <junit.version>5.9.0</junit.version>
     </properties>
@@ -80,7 +80,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Main
+                                cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.FakeMain
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>${project.artifactId}-${project.version}</jlinkZipName>
@@ -106,7 +106,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.Main</mainClass>
+                                    <mainClass>cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.FakeMain</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
