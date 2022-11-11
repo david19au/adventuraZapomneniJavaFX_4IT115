@@ -20,6 +20,7 @@ import java.util.Map;
 
 public class HomeController implements Pozorovatel {
 
+    public Button novaHra;
     @FXML
     private ImageView hrac;
     @FXML
@@ -178,6 +179,12 @@ public class HomeController implements Pozorovatel {
         Scene scene = new Scene(webView);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void clickNovaHra(ActionEvent actionEvent) {
+        vystup.clear();
+        hra = new Hra();
+        initialize();
     }
 
 
