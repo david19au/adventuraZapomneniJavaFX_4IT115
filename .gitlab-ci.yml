@@ -3,7 +3,7 @@ image: maven:3.8
 sestaveni:
   script:
     - "mvn javafx:jlink -B"
-    - "mvn "-Dtest=\!InventarTest,\!KoupitTest,\!BodnoutTest" install -B"
+    - "mvn '-Dtest=\!InventarTest,\!KoupitTest,\!BodnoutTest' install -B"
   artifacts:
     paths:
       - "target/*.zip"
