@@ -118,13 +118,9 @@ public class HomeController implements Pozorovatel {
 
     private void naplneniPaneluInventare() {
         panelInventar.getItems().clear();
-                Collection<Vec> collectionVeci = hra.getInventar().returnVeci();
-                panelInventar.getItems().addAll(collectionVeci);
+        Collection<Vec> collectionVeci = hra.getInventar().returnVeci();
+        panelInventar.getItems().addAll(collectionVeci);
     }
-
-
-
-
 
 
     private void zpracujPrikaz(String prikaz) {

@@ -37,7 +37,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -128,8 +127,10 @@
                         </goals>
                         <configuration>
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.FakeMain</mainClass>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>cz.vse.java.luut02.adventura.adventurazapomnenijavafx.main.FakeMain
+                                    </mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

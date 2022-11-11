@@ -91,6 +91,7 @@ public class Inventar implements PredmetPozorovani {
 
     /**
      * Metoda vytvoří novou kolekci z HashMapy, která si jsou vždycky rovny - mají stejný obsah.
+     *
      * @return vrací kolekci s věcmi
      */
     public Collection<Vec> returnVeci() {
@@ -98,7 +99,7 @@ public class Inventar implements PredmetPozorovani {
         return veci;
     }
 
-    public String nazvyVeci () {
+    public String nazvyVeci() {
 
         if (getPocetVeci() == 0) {
             return "V inventáři nic není.";
@@ -117,7 +118,7 @@ public class Inventar implements PredmetPozorovani {
     }
 
     public void upozorniPozorovatele() {
-        for (Pozorovatel pozorovatel: listOfPozorovateluInventar) {
+        for (Pozorovatel pozorovatel : listOfPozorovateluInventar) {
             pozorovatel.update();
         }
     }

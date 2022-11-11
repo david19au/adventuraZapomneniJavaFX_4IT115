@@ -1,8 +1,8 @@
 package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
 
-public class PrikazInventar implements IPrikaz{
+public class PrikazInventar implements IPrikaz {
 
-    private  static final String NAZEV = "inventar";
+    private static final String NAZEV = "inventar";
     private Inventar inventar;
 
     public PrikazInventar(Inventar inventar) {
