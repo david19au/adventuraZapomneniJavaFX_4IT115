@@ -51,6 +51,10 @@ public class HomeController implements Pozorovatel {
         Platform.runLater(() -> vstup.requestFocus());
         naplneniPaneluVychodu();
         naplneniPaneluInventare();
+        vstup.setDisable(false);
+        proved.setDisable(false);
+        panelVychodu.setDisable(false);
+        panelInventar.setDisable(false);
 
         souradniceProstoru.put("kuchyn", new Point2D(595, 14));
         souradniceProstoru.put("domov", new Point2D(460, 76));
