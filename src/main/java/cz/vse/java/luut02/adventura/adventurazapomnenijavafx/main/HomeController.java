@@ -52,18 +52,19 @@ public class HomeController implements Pozorovatel {
         naplneniPaneluVychodu();
         naplneniPaneluInventare();
 
-        souradniceProstoru.put("kuchyn", new Point2D(529, 34));
-        souradniceProstoru.put("domov", new Point2D(425, 84));
-        souradniceProstoru.put("ulice", new Point2D(333, 123));
-        souradniceProstoru.put("kamaraduv_byt", new Point2D(326, 43));
-        souradniceProstoru.put("koleje", new Point2D(116, 64));
-        souradniceProstoru.put("skola", new Point2D(289, 197));
-        souradniceProstoru.put("hlavni_nadrazi", new Point2D(202, 118));
-        souradniceProstoru.put("karluv_most", new Point2D(537, 175));
-        souradniceProstoru.put("drogovy_dealer", new Point2D(453, 248));
-        souradniceProstoru.put("psycholog", new Point2D(168, 212));
-        souradniceProstoru.put("strecha_skoly", new Point2D(284, 277));
-        souradniceProstoru.put("vaclavske_namesti", new Point2D(416, 174));
+        souradniceProstoru.put("kuchyn", new Point2D(595, 14));
+        souradniceProstoru.put("domov", new Point2D(460, 76));
+        souradniceProstoru.put("ulice", new Point2D(341, 128));
+        souradniceProstoru.put("kamaraduv_byt", new Point2D(329, 29));
+        souradniceProstoru.put("koleje", new Point2D(72, 35));
+        souradniceProstoru.put("skola", new Point2D(266, 215));
+        souradniceProstoru.put("hlavni_nadrazi", new Point2D(193, 111));
+        souradniceProstoru.put("karluv_most", new Point2D(594, 161));
+        souradniceProstoru.put("drogovy_dealer", new Point2D(499, 294));
+        souradniceProstoru.put("psycholog", new Point2D(141, 217));
+        souradniceProstoru.put("strecha_skoly", new Point2D(312, 300));
+        souradniceProstoru.put("vaclavske_namesti", new Point2D(454, 192));
+        posunHrace();
 
         panelVychodu.setCellFactory(prostorListView -> new ListCell<>() {
             @Override
