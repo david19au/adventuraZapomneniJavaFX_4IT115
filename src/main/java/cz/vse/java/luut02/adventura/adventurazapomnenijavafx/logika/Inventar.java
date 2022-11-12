@@ -68,10 +68,14 @@ public class Inventar implements PredmetPozorovani {
      * @return vrací odebranou věc
      */
 
-    //TODO - upozornit když se věc odebere?
     public Vec odebraniVeciZInv(String jmenoVeci) {
         pocetVeci--;
         return mapaSVecmi.remove(jmenoVeci);
+    }
+
+    public void vyprazdnitInventar(){
+        pocetVeci=0;
+        mapaSVecmi.clear();
     }
 
     /**
