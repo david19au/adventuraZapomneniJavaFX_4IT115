@@ -6,8 +6,8 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
 /**
  * Rozhraní které musí implementovat hra, je na ně navázáno uživatelské rozhraní
  *
- * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
- * @version pro školní rok 2016/2017
+ * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
+ * @version ZS 2022/23
  */
 public interface IHra {
     //== VEŘEJNÉ KONSTANTY =====================================================
@@ -46,13 +46,19 @@ public interface IHra {
 
 
     /**
-     * Metoda vrátí odkaz na herní plán, je využita hlavně v testech,
+     * Metoda vrátí odkaz na herní plán, je využita hlavně v testech a dále v controlleru,
      * kde se jejím prostřednictvím získává aktualní místnost hry.
      *
      * @return odkaz na herní plán
      */
     public HerniPlan getHerniPlan();
 
+    /**
+     * Metoda vrátí odkaz na inventář, je využita hlavně v testech a v controlleru,
+     * kde se jejím prostřednictvím získává aktualní inventář.
+     *
+     * @return odkaz na inventář
+     */
     public Inventar getInventar();
 
     //== ZDĚDĚNÉ METODY ========================================================

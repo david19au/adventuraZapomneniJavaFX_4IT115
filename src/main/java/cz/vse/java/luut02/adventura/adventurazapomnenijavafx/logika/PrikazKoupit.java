@@ -31,6 +31,7 @@ public class PrikazKoupit implements IPrikaz {
      * Tato metoda provádí příkaz 'koupit'.
      * Kontroluje, zda není napsaný žádný další argument a zda je postava u drogového dealera. Zároveň kontroluje inventář,
      * zda postava má peníze u sebe.
+     * Dále upozorňuje pozorovatele, že nastala změna v inventáři.
      *
      * @param parametry kontroluje zda hráč nenapsal žádný extra parametr.
      * @return vrací text při dané situaci.

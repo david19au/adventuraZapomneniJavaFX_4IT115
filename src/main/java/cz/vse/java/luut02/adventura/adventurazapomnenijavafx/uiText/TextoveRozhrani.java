@@ -14,7 +14,7 @@ import cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika.IHra;
  * Čte vstup zadaný uživatelem a předává tento řetězec logice a vypisuje odpověď logiky na konzoli.
  *
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
- * @version LS 2021/22
+ * @version ZS 2022/23
  */
 
 public class TextoveRozhrani {

@@ -16,7 +16,7 @@ import java.util.Set;
  * a pamatuje si aktuální prostor, ve kterém se hráč právě nachází.
  *
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
- * @version LS 2021/22
+ * @version ZS 2022/23
  */
 public class HerniPlan implements PredmetPozorovani {
 
@@ -110,7 +110,8 @@ public class HerniPlan implements PredmetPozorovani {
     }
 
     /**
-     * Metoda nastaví aktuální prostor, používá se nejčastěji při přechodu mezi prostory
+     * Metoda nastaví aktuální prostor, používá se nejčastěji při přechodu mezi prostory.
+     * Dále taky upozorňuje pozorovatele, že nastala změna.
      *
      * @param prostor nový aktuální prostor
      */
@@ -129,11 +130,19 @@ public class HerniPlan implements PredmetPozorovani {
         return aktualniProstor.equals(psychologProstor);
     }
 
+
+    /**
+     * Metoda tzv. registruje pozorovatele, aby mohl vědět o změnách.
+     * @param pozorovatel
+     */
     @Override
     public void registruj(Pozorovatel pozorovatel) {
         listOfPozorovateluProstor.add(pozorovatel);
     }
 
+    /**
+     * Metoda upozorňuje pozorovatele, že nastala nějaká změna a má se na ní podívat.
+     */
     private void upozorniPozorovatele() {
         for (Pozorovatel pozorovatel : listOfPozorovateluProstor) {
             pozorovatel.update();

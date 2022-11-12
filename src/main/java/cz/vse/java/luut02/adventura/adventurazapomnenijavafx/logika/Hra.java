@@ -9,7 +9,7 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
  * Také vyhodnocuje jednotlivé příkazy zadané uživatelem.
  *
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
- * @version LS 2021/22
+ * @version ZS 2022/23
  */
 
 public class Hra implements IHra {
@@ -20,7 +20,8 @@ public class Hra implements IHra {
     private boolean konecHry = false;
 
     /**
-     * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
+     * Vytváří hru, inventář, pro jistotu jej vyprazdňuje a inicializuje místnosti (prostřednictvím třídy HerniPlan) a
+     * seznam platných příkazů.
      */
     public Hra() {
         herniPlan = new HerniPlan();
@@ -114,8 +115,9 @@ public class Hra implements IHra {
     }
 
     /**
-     * Metoda vrátí odkaz na herní plán, je využita hlavně v testech,
+     * Metoda vrátí odkaz na herní plán, je využita hlavně v testech a dále v controlleru,
      * kde se jejím prostřednictvím získává aktualní místnost hry.
+     * Převzata z interfacu.
      *
      * @return odkaz na herní plán
      */
@@ -123,6 +125,13 @@ public class Hra implements IHra {
         return herniPlan;
     }
 
+    /**
+     * Metoda vrátí odkaz na inventář, je využita hlavně v testech a v controlleru,
+     * kde se jejím prostřednictvím získává aktualní inventář.
+     * Převzata z interfacu.
+     *
+     * @return odkaz na inventář
+     */
     public Inventar getInventar() {
         return inventar;
     }

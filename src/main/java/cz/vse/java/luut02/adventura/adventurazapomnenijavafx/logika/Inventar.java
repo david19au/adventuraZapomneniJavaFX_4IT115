@@ -12,7 +12,7 @@ import java.util.*;
  * Pokus o přidání 3. věci se nepodaří.
  *
  * @author Trong Dat Luu
- * @version LS 2021/22
+ * @version ZS 2022/23
  */
 
 public class Inventar implements PredmetPozorovani {
@@ -73,6 +73,10 @@ public class Inventar implements PredmetPozorovani {
         return mapaSVecmi.remove(jmenoVeci);
     }
 
+    /**
+     * Metoda vyprazdňuje inventář, aby v něm nic nebylo.
+     * Nastavuje počet věcí na 0 a vyčistí mapu s věcmi.
+     */
     public void vyprazdnitInventar(){
         pocetVeci=0;
         mapaSVecmi.clear();
@@ -103,6 +107,13 @@ public class Inventar implements PredmetPozorovani {
         return veci;
     }
 
+    /**
+     * Metoda vypíše, co má hráč v inventáři.
+     * Pokud je počet věcí 0, napíše hráči, že v inventáři nic není.
+     * Pokud je, použije se string builder, který pomocí for-loopu projde všechny věci v hashMapě, vezme si jejich K a
+     * a oddělí je.
+     * @return vrací co má hráč v inventáři
+     */
     public String nazvyVeci() {
 
         if (getPocetVeci() == 0) {
@@ -115,12 +126,19 @@ public class Inventar implements PredmetPozorovani {
         return nazvy.toString();
     }
 
+    /**
+     * Metoda tzv. registruje pozorovatele, aby mohl vědět o změnách.
+     * @param pozorovatel přidá pozorovatele do seznamu.
+     */
     @Override
     public void registruj(Pozorovatel pozorovatel) {
         listOfPozorovateluInventar.add(pozorovatel);
 
     }
 
+    /**
+     * Metoda upozorňuje pozorovatele, že nastala nějaká změna a má se na ní podívat.
+     */
     public void upozorniPozorovatele() {
         for (Pozorovatel pozorovatel : listOfPozorovateluInventar) {
             pozorovatel.update();

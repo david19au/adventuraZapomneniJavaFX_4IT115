@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
@@ -18,6 +19,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Třída HomeController ovládá grafické prvky hry.
+ *
+ * @author Trong Dat Luu
+ * @version ZS 2022/23
+ */
 public class HomeController implements Pozorovatel {
 
     public Button novaHra;
@@ -42,7 +49,14 @@ public class HomeController implements Pozorovatel {
 
     private IHra hra = new Hra();
 
-
+    /**
+     * Metoda initialize inicializuje grafické prostředí.
+     * Nastavuje aktuální herní plán a inventář spolu s pozorovateli, nastuvuje, aby se výstup dal do správného místa,
+     * provede naplnění panelů inventáře a východů a zajistí, aby prvky na vstup, proveď a panely byly zpřístupněné.
+     * Nastaví dále kde jsou určité lokality v mapě a posouvá hráče na počáteční místo.
+     * Vytvoří panely východů a inventáře pomocí cellfactory, spolu s doprovodnými obrázky.
+     *
+     */
     @FXML
     private void initialize() {
         hra.getHerniPlan().registruj(this);
@@ -115,6 +129,9 @@ public class HomeController implements Pozorovatel {
 
     }
 
+    /**
+     * Metoda plní panel východů dostupnými východy pro hráče.
+     */
     private void naplneniPaneluVychodu() {
         panelVychodu.getItems().clear(); //aby se po každém pohybu clearnul ten seznam a nebyly by tam old entries
         Collection<Prostor> vychody = hra.getHerniPlan().getAktualniProstor().getVychody();
@@ -122,6 +139,9 @@ public class HomeController implements Pozorovatel {
 
     }
 
+    /**
+     * Metoda plní panel inventáře, pokud hráč má nějaké předměty v něm.
+     */
     private void naplneniPaneluInventare() {
         panelInventar.getItems().clear();
         Collection<Vec> collectionVeci = hra.getInventar().returnVeci();
@@ -129,6 +149,12 @@ public class HomeController implements Pozorovatel {
     }
 
 
+    /**
+     * Metoda zpracuje příkaz hráče a zároveň v okně maže ">" které se zobrazují z konzolového zobrazení.
+     * Pokud metoda zjistí, že je konec hry, zablokuje hráči možnost klikat na pole vstupu, znemožní se panely inventáře
+     * a východů, zablokuje se tlačítko vstupu.
+     * @param prikaz příkaz zadaný hráčem
+     */
     private void zpracujPrikaz(String prikaz) {
         if (prikaz.isBlank())
             return;
@@ -146,6 +172,9 @@ public class HomeController implements Pozorovatel {
 
     }
 
+    /**
+     * Metoda převezme text z pole vstupů a zpracuje jej.
+     */
     @FXML
     private void zpracujVstup() {
         String prikaz = vstup.getText();
@@ -153,7 +182,10 @@ public class HomeController implements Pozorovatel {
         zpracujPrikaz(prikaz);
     }
 
-
+    /**
+     * Metoda volá další metody, které mění polohu hráče, jeho inventář a panel východů.
+     * Metoda převzata z intefacu Pozorovatel.
+     */
     @Override
     public void update() {
         naplneniPaneluVychodu();
@@ -162,6 +194,9 @@ public class HomeController implements Pozorovatel {
 
     }
 
+    /**
+     * Metoda nastavuje polohu hráče na mapě na základě v jakém prostoru se nachází.
+     */
     private void posunHrace() {
         String nazevProstoru = hra.getHerniPlan().getAktualniProstor().getNazev();
         Point2D souradnice = souradniceProstoru.get(nazevProstoru);
@@ -169,6 +204,10 @@ public class HomeController implements Pozorovatel {
         hrac.setLayoutY(souradnice.getY());
     }
 
+    /**
+     * Metoda zpracovává klikání na východy a podle nich se může hráč posouvat.
+     * @param mouseEvent kliknutí myši
+     */
     public void clickPanelVychodu(MouseEvent mouseEvent) {
         Prostor cilovyProstor = panelVychodu.getSelectionModel().getSelectedItem();
         if (cilovyProstor == null)
@@ -176,6 +215,12 @@ public class HomeController implements Pozorovatel {
         zpracujPrikaz(PrikazJdi.NAZEV + " " + cilovyProstor);
     }
 
+    /**
+     * Metoda zobrazí nápovědu z HTML souboru, když hráč klikne na tlačítko nápovědy v liště.
+     * Vytvoří se nové okno s webview, kde se HTML soubor načte.
+     * Nastaví se dále jméno okna a ikona hry.
+     * @param actionEvent kliknutí tlačítka
+     */
     public void clickNapoveda(ActionEvent actionEvent) {
         Stage stage = new Stage();
         String url = getClass().getResource("help.html").toExternalForm();
@@ -188,6 +233,11 @@ public class HomeController implements Pozorovatel {
         stage.show();
     }
 
+    /**
+     * Metoda vyčistí panel s výstupem a začne novou hru. Zavolá také metodu initialize, která nastaví počáteční
+     * sekvenci hry.
+     * @param actionEvent kliknutí tlačítka
+     */
     public void clickNovaHra(ActionEvent actionEvent) {
         vystup.clear();
         hra = new Hra();

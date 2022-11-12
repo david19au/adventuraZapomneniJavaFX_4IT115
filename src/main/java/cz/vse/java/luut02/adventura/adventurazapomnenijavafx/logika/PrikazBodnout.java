@@ -5,7 +5,7 @@ package cz.vse.java.luut02.adventura.adventurazapomnenijavafx.logika;
  * Pomocí tohoto příkazu se postava může zabít bodnutím nože do těla.
  *
  * @author Trong Dat Luu
- * @version LS 2021/22
+ * @version ZS 2022/23
  */
 public class PrikazBodnout implements IPrikaz {
 
@@ -28,6 +28,7 @@ public class PrikazBodnout implements IPrikaz {
     /**
      * Metoda která provádí přikaz 'bodnout'.
      * Kontroluje, zda má postava nůž v inventáři, pokud ne, neumožní postavě se zabít.
+     * Dále upozorňuje pozorovatele, že nastala změna v inventáři.
      *
      * @param parametry kontroluje zda hráč nenapsal žádný extra parametr.
      * @return vrací text s odpovědí na určitou činnost.

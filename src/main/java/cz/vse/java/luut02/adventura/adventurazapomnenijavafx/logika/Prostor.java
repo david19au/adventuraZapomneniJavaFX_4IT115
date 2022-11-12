@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * si prostor ukládá odkaz na sousedící prostor.
  *
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Trong Dat Luu
- * @version LS 2021/22
+ * @version ZS 2022/23
  */
 public class Prostor {
 
@@ -210,6 +210,10 @@ public class Prostor {
         return null;
     }
 
+    /**
+     * toString metoda, která vrací název prostoru
+     * @return název prostoru
+     */
     @Override
     public String toString() {
         return getNazev();
