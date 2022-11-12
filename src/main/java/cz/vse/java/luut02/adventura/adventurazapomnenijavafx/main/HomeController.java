@@ -182,7 +182,9 @@ public class HomeController implements Pozorovatel {
         WebView webView = new WebView();
         webView.getEngine().load(url);
         Scene scene = new Scene(webView);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("hrac.png")));
         stage.setScene(scene);
+        stage.setTitle("Zapomnění - luut02 - nápověda ke hře");
         stage.show();
     }
 

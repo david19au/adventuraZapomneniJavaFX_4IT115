@@ -48,6 +48,7 @@ public class Main extends Application {
         Scene scene = new Scene(loader.getRoot());
         stage.setScene(scene);
         stage.setTitle("Zapomnění - luut02");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("hrac.png")));
         stage.show();
         stage.setMaximized(true);
     }
