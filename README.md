@@ -33,3 +33,6 @@ Na Unix systémech (macOS, Linux) je možné, že budete muset přiřadit přís
 ```   
 chmod +x <cesta k souboru>
 ```   
+# Upozornění
+
+**Hra není dostupná na Apple M1 noteboocích.**
