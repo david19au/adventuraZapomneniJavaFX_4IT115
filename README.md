@@ -1,5 +1,4 @@
 # Adventura Zapomnění - luut02
-
 ![sad kaneki meme](https://i.kym-cdn.com/entries/icons/original/000/034/167/donny%27s_theme_cover.png)
 
 # Úvod
@@ -16,8 +15,17 @@ Pražská linka důvěry: 222 580 697
 
 # Spuštění hry - grafické rozhraní
 Hra se spouští otevřením souboru, který jste si stáhli z releases na GitLabu. Podmínkou na spuštění je stažená Java 17, ať už JRE anebo JDK. Doporučuji stáhnout z [Home | Adoptium](https://adoptium.net/).
+
+Na Unix systémech (macOS, Linux) je možné, že budete muset přiřadit příslušná oprávnění pomocí příkazu
+```   
+chmod +x <cesta k souboru>
+```   
 # Spuštění hry - textové rozhraní
-Hra se dá spustit v textovém rozhraní, pokud se spustí přes příkazovou řádku, resp. terminál, pomocí příkazu a argumentem *-text*.
+Hra se dá spustit v textovém rozhraní, pokud se spustí přes příkazovou řádku, resp. terminál, pomocí příkazu
+```   
+java -jar <cesta k jar souboru> -text
 ```  
-java -jar < cesta k jar souboru > -text
-```  
+Na Unix systémech (macOS, Linux) je možné, že budete muset přiřadit příslušná oprávnění pomocí příkazu
+```   
+chmod +x <cesta k souboru>
+```   
