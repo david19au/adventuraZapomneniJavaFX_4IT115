@@ -34,7 +34,7 @@ public class Main extends Application {
     public static void main(String[] args) throws IOException {
 
 
-        if (args.length > 0 && args[0].equals("text")) {
+        if (args.length > 0 && args[0].equals("-text")) {
             IHra hra = new Hra();
             TextoveRozhrani ui = new TextoveRozhrani(hra);
             ui.hraj();
@@ -49,7 +49,7 @@ public class Main extends Application {
      * Použije se soubor home.fxml, který obsahuje, kde se nachází jaké prvky, vytvoří a nastaví se nová scene,
      * nastaví se jméno, ikonka okna a nastaví se tak, aby okno se zapnulo maximalizované.
      * @param stage stage GUI
-     * @throws Exception
+     * @throws Exception vyhodí chybu
      */
     @Override
     public void start(Stage stage) throws Exception {
